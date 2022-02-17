@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model BookViewModel;
+
+<div class="text-center">
+    <h1 class="display-4">Book Store</h1>
+</div>
+
+<!--Loop through each row in book table and list the columns-->
+@foreach (Books b in Model.Books)
+{
+    <h3>@b.Title</h3>
+
+    <ul class="list-group">
+        <li class="list-group-item list-group-item-action list-group-item-dark">Author: @b.Author</li>
+        <li class="list-group-item list-group-item-action list-group-item-dark">Publisher: @b.Publisher</li>
+        <li class="list-group-item list-group-item-action list-group-item-dark">ISBN: @b.Isbn</li>
+        <li class="list-group-item list-group-item-action list-group-item-dark">Classification: @b.Classification</li>
+        <li class="list-group-item list-group-item-action list-group-item-dark">Category: @b.Category</li>
+        <li class="list-group-item list-group-item-action list-group-item-dark">Pages: @b.PageCount</li>
+        <li class="list-group-item list-group-item-action list-group-item-dark">Price: $@b.Price</li>
+    </ul><br />
+}
+
+<!--Pagination a tags with bootstrap classes-->
+<div page-model="@Model.PageInfo" page-action="Index" page-classes-enabled="true"
+     page-class="btn" page-class-normal="btn-outline-dark"
+     page-class-selected="btn-primary" class="btn-group pull-right m-1">
+</div>
