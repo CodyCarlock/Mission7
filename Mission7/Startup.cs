@@ -33,6 +33,11 @@ namespace Mission7
 
             //instead of using a dbContext file that conects to database, we use the Reposityry file that is an interface (interface is a tamplate) for the class
             services.AddScoped<IBookstoreRepository, EFBookstoreRepository>();
+
+            services.AddRazorPages();
+
+            services.AddDistributedMemoryCache();
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,16 +55,38 @@ namespace Mission7
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            app.UseSession();
             app.UseRouting();
 
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
+                //user friendly URL
+                endpoints.MapControllerRoute(
+                    name:"CatPage",
+                    pattern:"{bookCategory}/Page{pageNum}",
+                    defaults: new { Controller = "Home", Action = "Index" }
+                    );
+
+                endpoints.MapControllerRoute(
+                   name: "Paging",
+                   pattern: "Page{pageNum}",
+                   defaults: new { Controller = "Home", action = "Index", pageNum=1 }
+                   );
+
+                endpoints.MapControllerRoute(
+                    name: "Category",
+                    pattern:"{bookCategory}",
+                    defaults: new {Controller = "Home", action="Index", pageNum = 1}
+                    );
+
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+                endpoints.MapRazorPages();
+
             });
         }
     }

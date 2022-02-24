@@ -8,23 +8,26 @@
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+    <!--Header-->
+    <header class="bg-dark text-white">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-dark border-bottom box-shadow mb-3 text-white">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+                <a class="navbar-brand text-white" asp-controller="Home" asp-action="Index" asp-route-bookCategory="" asp-route-pageNum="1">Book Store</a>
             </div>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
+
+    <!--body-->
+    <div class="row m-1 p-1">
+        <div class="col-3">
+            <vc:categories></vc:categories>
+        </div>
+        <div class="col-9">
             @RenderBody()
-        </main>
+        </div>
     </div>
 
+    <!--footer-->
     <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2022 - Mission7 - Cody Carlock

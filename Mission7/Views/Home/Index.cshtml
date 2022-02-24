@@ -10,17 +10,7 @@
 <!--Loop through each row in book table and list the columns-->
 @foreach (Books b in Model.Books)
 {
-    <h3>@b.Title</h3>
-
-    <ul class="list-group">
-        <li class="list-group-item list-group-item-action list-group-item-dark">Author: @b.Author</li>
-        <li class="list-group-item list-group-item-action list-group-item-dark">Publisher: @b.Publisher</li>
-        <li class="list-group-item list-group-item-action list-group-item-dark">ISBN: @b.Isbn</li>
-        <li class="list-group-item list-group-item-action list-group-item-dark">Classification: @b.Classification</li>
-        <li class="list-group-item list-group-item-action list-group-item-dark">Category: @b.Category</li>
-        <li class="list-group-item list-group-item-action list-group-item-dark">Pages: @b.PageCount</li>
-        <li class="list-group-item list-group-item-action list-group-item-dark">Price: $@b.Price</li>
-    </ul><br />
+    <partial name="BookSummary" model="b"/>
 }
 
 <!--Pagination a tags with bootstrap classes-->
