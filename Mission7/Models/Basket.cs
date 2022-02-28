@@ -10,7 +10,7 @@ namespace Mission7.Models
         //Declares                                        Instantiates
         public List<BasketLineItem> Items { get; set; } = new List<BasketLineItem>();
         
-        public void AddItem(Books book, int qty)
+        public virtual void AddItem(Books book, int qty)
         {
             BasketLineItem line = Items
                 .Where(b => b.Book.BookId == book.BookId)
@@ -28,6 +28,18 @@ namespace Mission7.Models
             {
                 line.Quantity += qty;
             }
+        }
+
+        // virutal means it is allowed to be overridden when inherited 
+        public virtual void RemoveItem(Books book)
+        {
+            Items.RemoveAll(x => x.Book.BookId == book.BookId);
+        }
+
+
+        public virtual void ClearBasket()
+        {
+            Items.Clear();
         }
 
         public double CalculateTotal()
