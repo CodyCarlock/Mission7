@@ -6,6 +6,7 @@
     <title>@ViewData["Title"] - Mission7</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link href="/lib/font-awesome/css/all.min.css" rel="stylesheet" />
 </head>
 <body>
     <!--Header-->
@@ -13,6 +14,9 @@
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-dark border-bottom box-shadow mb-3 text-white">
             <div class="container">
                 <a class="navbar-brand text-white" asp-controller="Home" asp-action="Index" asp-route-bookCategory="" asp-route-pageNum="1">Book Store</a>
+            </div>
+            <div class="col-6 text-right text-white">
+                <vc:cart-summary />
             </div>
         </nav>
     </header>
