@@ -7,7 +7,7 @@ namespace Mission7.Models
 {
     public interface IPurchaseRepository
     {
-        IQueryable<Purchases> Purchases { get; }
-        public void SavePurchase(Purchases purchase);
+        IQueryable<Purchase> Purchases { get; }
+        public void SavePurchase(Purchase purchase);
     }
 }

@@ -34,6 +34,7 @@ namespace Mission7
 
             //instead of using a dbContext file that conects to database, we use the Reposityry file that is an interface (interface is a tamplate) for the class
             services.AddScoped<IBookstoreRepository, EFBookstoreRepository>();
+            services.AddScoped<IPurchaseRepository, EFPurchaseRepository>();
 
             services.AddRazorPages();
 
@@ -41,8 +42,7 @@ namespace Mission7
             services.AddSession();
             services.AddScoped<Basket>(x => SessionBasket.GetBasket(x));
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-            services.AddScoped<IPurchaseRepository, EFPurchaseRepository>();
-
+            services.AddServerSideBlazor();
 
         }
 
@@ -92,6 +92,9 @@ namespace Mission7
                     pattern: "{controller=Home}/{action=Index}/{id?}");
 
                 endpoints.MapRazorPages();
+
+                endpoints.MapBlazorHub();
+                endpoints.MapFallbackToPage("/admin/{*catchall}", "/Admin/Index");
 
             });
         }

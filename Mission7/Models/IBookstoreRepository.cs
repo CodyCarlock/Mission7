@@ -9,5 +9,9 @@ namespace Mission7.Models
     {
         //class set up specifically for querying information. Replaces a list
         IQueryable<Books> Books { get; }
+
+        public void SaveBook(Books b);
+        public void CreateBook(Books b);
+        public void DeleteBook(Books b);
     }
 }

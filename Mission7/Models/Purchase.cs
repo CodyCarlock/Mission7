@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Mission7.Models
 {
-    public class Purchases
+    public class Purchase
     {
         [Key]
         [BindNever]
@@ -30,6 +30,10 @@ namespace Mission7.Models
         [Required(ErrorMessage = "Please enter a country")]
         public string Country { get; set; }
         public bool Gift { get; set; }
+
+        //for administration purposes. Not passed through URL
+        [BindNever]
+        public bool PurchaseReceived { get; set; }
 
 
     }

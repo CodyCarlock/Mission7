@@ -20,11 +20,11 @@ namespace Mission7.Controllers
         [HttpGet]
         public IActionResult CheckOut()
         {
-            return View(new Purchases());
+            return View(new Purchase());
         }
 
         [HttpPost]
-        public IActionResult CheckOut(Purchases purchase)
+        public IActionResult CheckOut(Purchase purchase)
         {
             //to check if basket is empty
             if (basket.Items.Count() == 0)

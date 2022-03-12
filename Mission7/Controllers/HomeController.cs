@@ -27,7 +27,7 @@ namespace Mission7.Controllers
             {
                 //runs as if we passed in the conext file.
                 Books = repo.Books
-                .Where(p => p.Category == bookCategory | bookCategory == null)
+                .Where(b => b.Category == bookCategory | bookCategory == null)
                 .OrderBy(b => b.Title)
                 .Skip((pageNum - 1) * pageSize)
                 .Take(pageSize),
