@@ -2,7 +2,7 @@
 @{
 }
 
-@model Book
+@model Books
 
 <div class="card card-outline-primary m-1 p-1">
 
@@ -27,7 +27,7 @@
 
     <form method="POST" asp-page="/Cart">
         <input type="hidden" asp-for="@Model.BookId"/>
-        <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()"
+        <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" />
         <span class="card-text">
             <button type="submit" class="btn btn-success btn-sm float-end">Add To Cart</button>
         </span>
