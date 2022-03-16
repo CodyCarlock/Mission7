@@ -69,23 +69,23 @@ namespace Mission7
             app.UseEndpoints(endpoints =>
             {
                 //user friendly URL
-                endpoints.MapControllerRoute(
-                    name:"CatPage",
-                    pattern:"{bookCategory}/Page{pageNum}",
-                    defaults: new { Controller = "Home", Action = "Index" }
-                    );
+                //endpoints.MapControllerRoute(
+                //    name:"CatPage",
+                //    pattern:"{bookCategory}/Page{pageNum}",
+                //    defaults: new { Controller = "Home", Action = "Index" }
+                //    );
 
-                endpoints.MapControllerRoute(
-                   name: "Paging",
-                   pattern: "Page{pageNum}",
-                   defaults: new { Controller = "Home", action = "Index", pageNum=1 }
-                   );
+                //endpoints.MapControllerRoute(
+                //   name: "Paging",
+                //   pattern: "Page{pageNum}",
+                //   defaults: new { Controller = "Home", action = "Index", pageNum=1 }
+                //   );
 
-                endpoints.MapControllerRoute(
-                    name: "Category",
-                    pattern:"{bookCategory}",
-                    defaults: new {Controller = "Home", action="Index", pageNum = 1}
-                    );
+                //endpoints.MapControllerRoute(
+                //    name: "Category",
+                //    pattern:"{bookCategory}",
+                //    defaults: new {Controller = "Home", action="Index", pageNum = 1}
+                //    );
 
                 endpoints.MapControllerRoute(
                     name: "default",

@@ -8,7 +8,7 @@
 
 <h3 class="bg-@ThemeColor text-white text-center p-1">@TitleText a Book</h3>
 
-<EditForm Model="b" OnValidSubmit="SaveBook">
+<EditForm Model="b" OnSubmit="SaveBook">
     <DataAnnotationsValidator></DataAnnotationsValidator>
 
     
@@ -65,6 +65,7 @@
         <InputNumber class="form-control" @bind-Value="b.Price"></InputNumber>
     </div>
 
+    
     <button type="submit" class="btn btn-@ThemeColor">Save</button>
     <NavLink class="btn btn-secondary" href="/admin/books">Cancel</NavLink>
     
@@ -79,7 +80,7 @@
     public string ThemeColor => Id == 0 ? "primary" : "warning";
     public string TitleText => Id == 0 ? "Add" : "Edit";
 
-    public Mission7.Models.Books b { get; set; } = new Mission7.Models.Books();
+    public Mission7.Models.Book b { get; set; } = new Mission7.Models.Book();
 
     public IBookstoreRepository repo => Service;
 
@@ -102,8 +103,9 @@
             repo.SaveBook(b);
         }
 
-        NavManager.NavigateTo("/admin/book", true);
+        NavManager.NavigateTo("/admin/books");
     }
+
 
     [Inject]
     public NavigationManager NavManager { get; set; }

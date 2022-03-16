@@ -8,7 +8,7 @@
 </div>
 
 <!--Loop through each row in book table and list the columns-->
-@foreach (Books b in Model.Books)
+@foreach (Book b in Model.Books)
 {
     <partial name="BookSummary" model="b"/>
 }

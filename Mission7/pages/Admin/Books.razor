@@ -15,8 +15,8 @@
         @if (BookData?.Count() > 0)
         {
             //List the projects
-            @foreach(Mission7.Models.Books b in BookData)
-                {
+            @foreach(Mission7.Models.Book b in BookData)
+            {
                     <tr>
                         <td>@b.BookId</td>
                         <td>@b.Title</td>
@@ -51,7 +51,7 @@
 @code {
 
     public IBookstoreRepository repo => Service;
-    public IEnumerable<Mission7.Models.Books> BookData { get; set; }
+    public IEnumerable<Book> BookData { get; set; }
 
     protected async override Task OnInitializedAsync()
     {
@@ -63,7 +63,7 @@
         BookData = await repo.Books.ToListAsync();
     }
 
-    public async Task RemoveBook(Mission7.Models.Books b)
+    public async Task RemoveBook(Book b)
     {
         repo.DeleteBook(b);
         await UpdateData();

@@ -8,10 +8,10 @@ namespace Mission7.Models
     public interface IBookstoreRepository
     {
         //class set up specifically for querying information. Replaces a list
-        IQueryable<Books> Books { get; }
+        IQueryable<Book> Books { get; }
 
-        public void SaveBook(Books b);
-        public void CreateBook(Books b);
-        public void DeleteBook(Books b);
+        public void SaveBook(Book b);
+        public void CreateBook(Book b);
+        public void DeleteBook(Book b);
     }
 }
