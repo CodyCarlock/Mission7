@@ -7,8 +7,8 @@
 </style>
 
 <h3 class="bg-@ThemeColor text-white text-center p-1">@TitleText a Book</h3>
-
-<EditForm Model="b" OnValidSubmit="SaveBook">
+                                                <!--Added bootstrap-->
+<EditForm Model="b" OnValidSubmit="SaveBook" class="border border-warning">
     <DataAnnotationsValidator></DataAnnotationsValidator>
 
     <div class="form-group">
@@ -78,7 +78,7 @@
     public string ThemeColor => Id == 0 ? "primary" : "warning";
     public string TitleText => Id == 0 ? "Add" : "Edit";
 
-    public Mission7.Models.Books b { get; set; } = new Mission7.Models.Books();
+    public Book b { get; set; } = new Book();
 
     public IBookstoreRepository repo => Service;
 
